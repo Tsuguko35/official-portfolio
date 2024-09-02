@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap");
+
+@font-face {
+  font-family: "BonvenoCF";
+  src: url(../assets/fonts/BonvenoCF-Light.otf);
+}
+
+:root {
+  --color-dark-1: #0b1215;
+  --color-light-1: #ffffff;
+}
+
+/* Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "Vollkorn", sans-serif;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--white);
+  min-height: 100vh;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--white);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--text);
+  border-radius: 20px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--text);
+}
+
+/* Remove arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Remove arrows in Chrome, Safari, and Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows in Internet Explorer 10+ */
+input[type="number"] {
+  -ms-appearance: textfield;
+}
