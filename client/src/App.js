@@ -1,14 +1,23 @@
-import logo from "./logo.svg";
 import "./styles/style.css";
-import { Preloader } from "./components";
+import "./styles/fontface.css";
+import { Preloader, Navbar, Scrollbar, CursorFollower } from "./components";
 
 function App() {
   return (
     <div className="App">
+      {/* Cursor Follower */}
+      <CursorFollower />
+
       {/* PAGE PRELOADER */}
       <Preloader />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
+      {/* Scrollbar */}
+      <Scrollbar />
+
+      {/* Navbar */}
+      <Navbar />
+
+      <main className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -20,7 +29,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </main>
     </div>
   );
 }

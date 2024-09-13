@@ -1,0 +1,128 @@
+.navbar {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  padding-top: var(--vertical-gutter);
+  padding-inline: var(--horizontal-gutter);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+  animation: showNavbar 0.5s ease-in-out forwards 3.5s;
+}
+
+.navbar.scrolled {
+  padding: 20px 120px;
+  background-color: var(--color-dark-1);
+}
+
+.navbar:not(.scrolled) {
+  transition-delay: 0.5s;
+}
+
+@keyframes showNavbar {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.navbar > nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-light-1);
+  max-width: 1920px;
+}
+
+.navbar > nav a {
+  font-family: "Forum";
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.navbar > nav > a > span {
+  font-family: "Forum";
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.navbar > nav > .hamburger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 40px;
+  height: 38px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar > nav > .hamburger > .hamburger__line {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: var(--color-light-1);
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar > nav > .hamburger > .hamburger__line:nth-child(2) {
+  width: 40px;
+}
+
+.navbar > nav > .hamburger:hover > .hamburger__line {
+  width: 40px;
+}
+
+.navbar > nav > .hamburger:hover > .hamburger__line:nth-child(2) {
+  width: 25px;
+}
+
+.navbar > nav > .hamburger > .hamburger__line:nth-child(1) {
+  transform: translateY(-10px);
+}
+
+.navbar > nav > .hamburger > .hamburger__line:nth-child(3) {
+  transform: translateY(10px);
+}
+
+.navbar > nav > .hamburger.open > .hamburger__line:nth-child(2) {
+  width: 0px;
+}
+
+.navbar > nav > .hamburger.open > .hamburger__line:nth-child(1) {
+  transform: translateY(0px) rotateZ(45deg);
+  width: 40px;
+}
+
+.navbar > nav > .hamburger.open > .hamburger__line:nth-child(3) {
+  transform: translateY(0px) rotateZ(-45deg);
+  width: 40px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    padding: 50px 30px;
+  }
+
+  .navbar.scrolled {
+    padding: 20px 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+    padding: 30px 20px;
+  }
+  .navbar.scrolled {
+    padding: 20px 20px;
+  }
+}

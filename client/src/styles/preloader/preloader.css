@@ -11,6 +11,7 @@
   color: var(--color-light-1);
   pointer-events: none;
   animation: removeBackground 1s forwards 4.5s;
+  overflow: hidden;
 }
 
 .preloader > .preloader__content {
@@ -21,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 4rem;
 }
 
 /* Preloader Header */
@@ -31,150 +32,76 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 1rem;
   z-index: 1001;
-  animation: removeContent 2s forwards 3.5s;
+  animation: removeContent 1s ease-out forwards 2.3s;
 }
 
 .preloader > .preloader__content > .preloader__header > h2 {
   font-weight: 300;
+  font-size: 1.1rem;
   letter-spacing: 2px;
 }
 
 .preloader > .preloader__content > .preloader__header > h1 {
-  font-family: "BonvenoCF";
-  letter-spacing: 5px;
+  font-family: "Forum";
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.preloader > .preloader__content > .preloader__header > h1 > span {
+  font-family: "Forum";
+  font-size: 4rem;
 }
 
 /* Preloader Counter */
 .preloader > .preloader__content > .preloader__counter {
-  font-size: 1.2rem;
+  font-family: "Forum";
+  font-size: 1rem;
   z-index: 1001;
-  animation: removeContent 2s forwards 3.5s;
-}
-
-/* Preloader Box */
-.preloader > .preloader__content > .preloader__box {
-  position: absolute;
-  background-color: var(--color-dark-1);
-  width: 100%;
-  height: 100%;
-  max-width: 500px;
-  max-height: 500px;
-  border: 1px solid transparent;
-  z-index: 1000;
-  transition: transform 0.3s ease; /* Smooth transition for scaling */
-  pointer-events: none;
-  transform-origin: center;
-}
-
-.preloader > .preloader__content > .preloader__box::before,
-.preloader > .preloader__content > .preloader__box::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--color-light-1);
-  pointer-events: none;
-  transition: border-radius 250ms ease-in-out;
-}
-
-.preloader > .preloader__content > .preloader__box.cursor::before,
-.preloader > .preloader__content > .preloader__box.cursor::after {
-  border: 3px solid var(--color-light-1);
-  border-radius: 50%;
-}
-
-.preloader > .preloader__content > .preloader__box::before {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-  width: 0;
-  height: 0;
-  animation: borderAnimation1 1.5s forwards, borderRotate 1s forwards 1.8s;
-}
-
-.preloader > .preloader__content > .preloader__box::after {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-  width: 0;
-  height: 0;
-  animation: borderAnimation2 1.5s forwards, borderRotate 1s forwards 1.8s;
-}
-
-@keyframes borderAnimation1 {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  25% {
-    width: 25%;
-    height: 25%;
-  }
-  75% {
-    width: 90%;
-    height: 90%;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes borderAnimation2 {
-  0% {
-    width: 0;
-    height: 0;
-  }
-  25% {
-    width: 25%;
-    height: 25%;
-  }
-  75% {
-    width: 90%;
-    height: 90%;
-  }
-  100% {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes borderRotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(45deg);
-  }
+  animation: removeContent 1s ease-out forwards 2.3s;
 }
 
 @keyframes removeContent {
   0% {
-    opacity: 1;
-    transform: translateY(0);
+    -webkit-filter: blur(0.01);
+    filter: blur(0.01);
   }
-
-  50% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-
   100% {
-    opacity: 0;
-    transform: translateY(-40px);
+    -webkit-filter: blur(12px) opacity(0%);
+    filter: blur(12px) opacity(0%);
   }
 }
 
 @keyframes removeBackground {
-  0% {
-    opacity: 1;
-  }
-
   100% {
-    opacity: 0;
+    background-color: transparent;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .preloader > .preloader__content > .preloader__header > h1 > span {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .preloader > .preloader__content > .preloader__header > h1 > span {
+    font-size: 4rem;
+  }
+  .preloader > .preloader__content > .preloader__header > h1 {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .preloader > .preloader__content > .preloader__header > h1 > span {
+    font-size: 3rem;
   }
 }

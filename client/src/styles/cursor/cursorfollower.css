@@ -1,0 +1,43 @@
+.circle__loader__container {
+  position: fixed;
+  width: min(100%, 750px);
+  height: min(100%, 750px);
+  z-index: 1002;
+  pointer-events: none;
+  transition: transform 0.5s ease; /* Smooth transition when following the cursor */
+}
+
+.circle__loader {
+  width: 100%;
+  height: 100%;
+}
+
+.circle__bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5); /* Background circle color */
+  stroke-width: 0.2;
+}
+
+.circle__progress {
+  fill: none;
+  stroke: var(--color-light-1);
+  stroke-width: 0.2;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-width 1s ease;
+  animation: rotate 2s cubic-bezier(0.62, -0.01, 0, 1.01) forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.circle__progress.follow {
+  stroke-width: 0.5;
+}
